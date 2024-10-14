@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-      <div class="w-full min-h-screen bg-zinc-900 p-10">
+      <div class="w-full min-h-screen bg-zinc-900 p-10 overflow-x-auto">
       <form class="text-white" action="/create" method="post">
         <input
           class="p-3 w-full bg-zinc-600 rounded-lg border-none"
@@ -28,12 +28,17 @@
         />
       </form>
 
-      <div class="flex gap-12 px-10">
+      <div class=" flex flex-wrap justify-start  gap-5 px-5">
 
         <% if(files.length > 0 ){ %> 
             <% files.forEach(function(val) { %>
-        <div class="bg-zinc-800 w-72 mt-10 rounded-lg p-4 text-white">
-         <h1 class="text-lg truncate mb-3 "><%= val %></h1>
+        <div class="bg-zinc-800 w-72 mt-10 rounded-lg p-4 text-white"">
+<div class="flex justify-between">
+
+  <h1 class="text-lg truncate mb-3 "><%= val %></h1> 
+  <a class=" text-sm pt-1 text-zinc-400" href="/edit/<%= val%>">Edit Name</a>
+</div>
+
           <a class="text-blue-500 " href="/files/<%= val%>">Read more...</a>
         </div>
         <% }) %>
